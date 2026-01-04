@@ -1,0 +1,42 @@
+{
+  "name": "webestit/githooks",
+  "description": "Repository-Managed Git Hooks",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "dev.yuri.z@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "antonpugach97@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "@install-hooks"
+    ],
+    "post-update-cmd": [
+      "@install-hooks"
+    ],
+    "install-hooks": [
+      "bash vendor/webestit/githooks/bin/install-hooks.sh"
+    ]
+  },
+  "keywords": [
+    "git",
+    "git-hooks",
+    "hooks",
+    "githooks",
+    "pre-commit",
+    "commit-msg",
+    "pre-push",
+    "conventional-commits",
+    "ci",
+    "developer-tools"
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+}
