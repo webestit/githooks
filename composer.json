@@ -14,17 +14,6 @@
       "role": "Developer"
     }
   ],
-  "scripts": {
-    "post-install-cmd": [
-      "@install-hooks"
-    ],
-    "post-update-cmd": [
-      "@install-hooks"
-    ],
-    "install-hooks": [
-      "bash vendor/webestit/githooks/bin/install-hooks.sh"
-    ]
-  },
   "keywords": [
     "git",
     "git-hooks",
@@ -36,7 +25,5 @@
     "conventional-commits",
     "ci",
     "developer-tools"
-  ],
-  "minimum-stability": "stable",
-  "prefer-stable": true
+  ]
 }
