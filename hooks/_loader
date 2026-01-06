@@ -1,0 +1,17 @@
+#!/bin/sh
+# Centralized Git hooks loader
+# Invoked by hooks like "pre-commit", "commit-msg", etc.
+set -eu
+
+. "$(cd "$(dirname "$0")/.." && pwd)/helpers/base.sh"
+
+HOOK_NAME="$1"
+shift
+
+skip_if_no_hooks "$HOOK_NAME"
+
+info "🪝 Running $HOOK_NAME hooks..."
+indent_inc
+run_hook_scripts "$HOOK_NAME" "$@"
+indent_dec
+success "✅ $HOOK_NAME completed successfully."
