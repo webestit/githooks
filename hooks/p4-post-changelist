@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Delegate to central loader
+HOOK_NAME="$(basename "$0")"
+"$(dirname "$0")/_loader" "$HOOK_NAME" "$@"
