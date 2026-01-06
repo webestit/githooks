@@ -52,6 +52,7 @@ skip_if_no_hooks() {
 
 run_hook_scripts() {
   HOOK_NAME="$1"
+  shift
 
   if [ -d "$(project_hooks_dir "$HOOK_NAME")" ]; then
     for script in "$(project_hooks_dir "$HOOK_NAME")"/*; do
