@@ -1,19 +1,25 @@
 {
   "name": "webestit/githooks",
-  "description": "Repository-Managed Git Hooks",
+  "description": "Repository-Managed Git Hooks: language-agnostic, POSIX-compliant",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.0",
   "authors": [
     {
-      "name": "dev.yuri.z@gmail.com",
+      "name": "Yurii Zadryhun",
+      "email": "dev.yuri.z@gmail.com",
       "role": "Developer"
     },
     {
-      "name": "antonpugach97@gmail.com",
+      "name": "Anton Puhach",
+      "email": "antonpugach97@gmail.com",
       "role": "Developer"
     }
   ],
+  "homepage": "https://github.com/webestit/githooks",
+  "support": {
+    "issues": "https://github.com/webestit/githooks/issues",
+    "source": "https://github.com/webestit/githooks"
+  },
   "keywords": [
     "git",
     "git-hooks",
@@ -24,6 +30,11 @@
     "pre-push",
     "conventional-commits",
     "ci",
-    "developer-tools"
+    "dev",
+    "developer-tools",
+    "husky"
+  ],
+  "bin": [
+    "bin/githooks"
   ]
 }

@@ -1,0 +1,61 @@
+#!/bin/sh
+# CLI for githooks package
+set -eu
+
+. "$(dirname "$0")/../helpers/base.sh"
+
+show_help() {
+  info_bold "Usage:"
+  indent_inc
+    info "githooks [command] [options]"
+  indent_dec
+
+  echo
+
+  info_bold "Commands:"
+  indent_inc
+    info "install, i          Configure the current repository to use githooks."
+    info "help, -h, --help    Show this help message."
+  indent_dec
+
+  echo
+
+  info_bold "Examples:"
+  indent_inc
+    info "githooks install"
+    info "githooks i"
+  indent_dec
+}
+
+install() {
+  if configure_git_hooksPath; then
+    success "✅ Git hooks path configured successfully!"
+
+    # Create .githooks directory in project root if it doesn't exist
+    if [ ! -d "$(project_hooks_dir)" ]; then
+      if mkdir -p "$(project_hooks_dir)"; then
+        info "📂 Created $(project_hooks_dir) for your hooks."
+      fi
+    fi
+  else
+    error "❌ Failed to configure Git hooks path."
+    exit 1
+  fi
+}
+
+# Command routing
+COMMAND="${1:-help}"
+
+case "$COMMAND" in
+  install|i)
+    install
+    ;;
+  help|-h|--help)
+    show_help
+    ;;
+  *)
+    error "Unknown command: $COMMAND"
+    show_help
+    exit 1
+    ;;
+esac
